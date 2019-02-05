@@ -5,7 +5,7 @@ require( dplyr )
 require( ggplot2 )
 
 # *1. Test simple function =============================
-fn.test <-  function( DF, COLNAME ) {
+fn_test <-  function( DF, COLNAME ) {
     tmp.name    <-  enquo( COLNAME )
 
     df.out  <-  DF %>%
@@ -16,12 +16,12 @@ fn.test <-  function( DF, COLNAME ) {
 
 df.tmp  <-  data.frame( colA = 1:4, columnOddName = c("A", "h", "o", "y"), colB = 5:8 )
 
-fn.test( df.tmp, columnOddName )
+fn_test( df.tmp, columnOddName )
 # -----------------------------------------------------
 
 
 # *2. Test with a ggplot ==============================
-fn.test.fig <-  function( DF, COLA, COLB ) {
+fn_testFig <-  function( DF, COLA, COLB ) {
     tmp.name.a  <-  enquo( COLA )
     tmp.name.b  <-  enquo( COLB )
 
@@ -33,7 +33,7 @@ fn.test.fig <-  function( DF, COLA, COLB ) {
     return ( p.out )
 }
 
-fn.test.fig( df.tmp, colA, colB )
+fn_testFig( df.tmp, colA, colB )
 # -----------------------------------------------------
 
 
