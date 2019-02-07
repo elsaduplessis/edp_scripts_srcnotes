@@ -1,4 +1,16 @@
+# ***** PLOT:   *********************************************
+#               panel of MAD distances and compare with 
+#               raw data and histogram/density.
+#               Also include log2( data ).
+#               LHS: raw data
+#               RHS: log2( data )
+#               Row 1: histograms
+#               Row 2: raw data by index
+#               Row 3: MAD distances (median should be 1)
+#               Row 4: asymmetric MAD distances
 
+#               Test data block @ bottom. See data/raw/.
+# ***********************************************************
 
 fn_plotVar_MAddistances     <-  function ( DF, VARNAME ) {
     var         =   enquo( VARNAME )
