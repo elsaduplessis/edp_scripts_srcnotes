@@ -6,10 +6,10 @@ require( ggplot2 )
 
 # *1. Test simple function =============================
 fn_test <-  function( DF, COLNAME ) {
-    tmp.name    <-  enquo( COLNAME )
+    tmpName =   enquo( COLNAME )
 
-    df.out  <-  DF %>%
-                dplyr::select( !!tmp.name )
+    df.out  =   DF %>%
+                dplyr::select( !!tmpName )
                 
     return ( df.out )
 }
@@ -20,14 +20,15 @@ fn_test( df.tmp, columnOddName )
 # -----------------------------------------------------
 
 
-# *2. Test with a ggplot ==============================
-fn_testFig <-  function( DF, COLA, COLB ) {
-    tmp.name.a  <-  enquo( COLA )
-    tmp.name.b  <-  enquo( COLB )
+
+# *2. Test with ggplot ================================
+fn_testFig <-  function( DF, VECA, VECB ) {
+    nameA   <-  enquo( VECA )
+    nameB   <-  enquo( VECB )
 
     p.out   <-  DF %>%
-                ggplot( aes(x = !!tmp.name.a, y = !!tmp.name.b) ) + 
-                geom_point( colour = "#cc00cc", size = 2 ) + 
+                ggplot( aes(x = !!nameA, y = !!nameB) ) + 
+                geom_point( colour = "#cc00cc", size = 4 ) + 
                 labs( title = "success" )
                 
     return ( p.out )
@@ -38,7 +39,7 @@ fn_testFig( df.tmp, colA, colB )
 
 
 
-# *SOURCE of WISDOM =============================
+# *SOURCE of WISDOM ===================================
 
 # See last comment with latest dplyr updates:
 # https://stackoverflow.com/questions/28973056/in-r-pass-column-name-as-argument-and-use-it-in-function-with-dplyrmutate-a
