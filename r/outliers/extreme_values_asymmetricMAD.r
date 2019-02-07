@@ -16,6 +16,7 @@ fn_calcMAD  <-  function ( VEC, MADtype ) {
     
     # Set default MAD argument as "symmetric" - ie will retrun single MAD value.
     MADtype = ifelse( missing(MADtype), "symmetric", MADtype )
+    MADtype = ifelse( MADtype != "skew", "symmetric", MADtype )
 
     # Calculate absolute deviations from MEDIAN
     absDev  = fn_absDev( VEC )
@@ -62,6 +63,7 @@ fn_calcMADdist  <- function ( VEC, MADtype ) {
 
     # Set default MAD argument as "symmetric" - ie will retrun single MAD value.
     MADtype = ifelse( missing(MADtype), "symmetric", MADtype )
+    MADtype = ifelse( MADtype != "skew", "symmetric", MADtype )
     
     # Call inner functions to caluclate absolute deviations and MAD values(s)
     MADvec      = fn_calcMADvec( VEC, MADtype )
@@ -76,6 +78,28 @@ fn_calcMADdist  <- function ( VEC, MADtype ) {
     return( MADdist )
 }
 # ------------------------------------------------------------------------------------------------
+
+# *5. Extra: MAD limits for a vector  ===========================================================
+#       Finally
+fn_MADlimits    <- function ( VEC, MADdevs, MADtype ) {
+    # Set default MAD argument as "symmetric" - ie will retrun single MAD value.
+    MADtype = ifelse( missing(MADtype), "symmetric", MADtype )
+    MADtype = ifelse( MADtype != "skew", "symmetric", MADtype )
+    
+
+    if (MADtype == "symmetric") {
+        LIMlower    = median(VEC, na.rm = TRUE) - MADdevs*fn_calcMAD(VEC, MADtype)
+        LIMupper    = median(VEC, na.rm = TRUE) + MADdevs*fn_calcMAD(VEC, MADtype)
+        MADlims     = c(LIMlower, LIMupper)
+    } else {
+        LIMlower    = median(VEC, na.rm = TRUE) - MADdevs*fn_calcMAD(VEC, MADtype)[1]
+        LIMupper    = median(VEC, na.rm = TRUE) + MADdevs*fn_calcMAD(VEC, MADtype)[2]
+        MADlims     = c(LIMlower, LIMupper)
+    }
+    return( MADlims )
+}
+# ------------------------------------------------------------------------------------------------
+
 
 
 # *TEST *****************************************************************
@@ -102,6 +126,12 @@ fn_calcMADdist( tmp, "skew" )
 # Median of all MAD distances should be 1:
 median( fn_calcMADdist(df.test$vb), na.rm = TRUE )
 median( fn_calcMADdist(df.test$vb, "skew"), na.rm = TRUE )
+
+
+# 5.
+fn_MADlimits( tmp, 3 )          # Should default to "symmetric"
+fn_MADlimits( tmp, 3, "boo" )   # Should default to "symmetric"
+fn_MADlimits( tmp, 3, "skew" )  # Asymmetric MAD method.
 # ----------------------------------------------------------------------
 
 
