@@ -59,59 +59,6 @@ range( fn_winsorizeMAD(tmp, 2, 0, "v"), na.rm = TRUE )
 fn_MADlimits( tmp, 2 )
 # ----------------------------------------------------------------------
 
-
-df.test %>%
-mutate_at( vars(va), funs(ifelse(LOGopt == 1, replace(., fn_calcMADdist(log2(.)) > MADdeviations,  MADdeviations*fn_calcMAD(log2(.))), 
-                                                replace(., fn_calcMADdist(. > MADdeviations,  MADdeviations*fn_calcMAD(.))))) )
-
-df.test %>%
-mutate_at( vars(va), funs(ifelse(LOGopt == 1, replace(., fn_calcMADdist(log2(.)) > MADdeviations, 22), 
-                                            replace(., fn_calcMADdist(. > MADdeviations,  33)))) )                                           
-
-
-mutate( OUT = case_when( LOGopt == 1 ~  ) )
-# NOT RUN {
-# case_when is particularly useful inside mutate when you want to
-# create a new variable that relies on a complex combination of existing
-# variables
-    VEC %>%
-    mutate( OUT = case_when(    LOGopt == 1 & fn_calcMADdist(log2(VEC)) > MADdeviations ~ MADdeviations*fn_calcMAD(log2(VEC)),
-                                LOGopt == 0 & fn_calcMADdist(VEC) > MADdeviations ~ MADdeviations*fn_calcMAD(log2(VEC),
-                                ~ VEC  )
-
-
-
-# -------------------------------------------------------------------------------------------------------
-
-# *2. Winsorization (dplyr) ============================================================================
-#   Same as above, but with explicit argument if I want to Winsoriaze using the log transformed values, 
-
-fn_winsorizeMAD_logOption  <-  function ( VEC, madDeviations, MADtype ) {
-
-    # Set default MAD argument as "symmetric" - ie will retrun single MAD value.
-    MADtype = ifelse( missing(MADtype), "symmetric", MADtype )
-
-    if (MADtype == "skew") {
-        MADlower    = median( absDev[VEC <= median(VEC, na.rm = TRUE)], na.rm = TRUE )
-        MADupper    = median( absDev[VEC >= median(VEC, na.rm = TRUE)], na.rm = TRUE )
-        MADval      = c( MADlower, MADupper )
-    } else {
-        # Winsorisation: REPLACE extreme values with the appropriate limit
-        VEC %<>%    replace( ., fn_calcMADdist(.) > madDeviations, madDeviations*fn_calcMAD(.) ) #WERK, madDeviations*fn_calcMAD(.) nie reg nie
-    }
-
-    
-    return ( VEC )
-} 
-# -------------------------------------------------------------------------------------------------------
-
-# *Test*********************************************
-# range( tmp, na.rm = TRUE )
-# range( fn_winsorizeMAD( tmp, 2 ), na.rm = TRUE )
-# -------------------------------------------------
-
-
-
 # https://en.wikipedia.org/wiki/Winsorizing
 
     # Note that winsorizing is not equivalent to simply excluding data, which is a simpler procedure, called trimming or truncation, 
