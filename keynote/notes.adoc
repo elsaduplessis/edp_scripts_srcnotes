@@ -1,0 +1,9 @@
+
+
+### Hyperlinks
+
+Before exporting to pdf, *UNGROUP* all linkage from their objects.
+
+If a link is grouped, it will lose functionality in .pdf. 
+
+:/
