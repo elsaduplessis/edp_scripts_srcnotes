@@ -36,7 +36,7 @@ fn_winsorizeMAD  <-  function ( VEC, MADdeviations, LOGopt, MADtype ) {
     } else {
         out =   VEC %>%
                 replace(., fn_calcMADdist(.) > MADdeviations & . < median(., na.rm = TRUE),  # below median 
-                                round(fn_MADlimits(tmp, MADdeviations)[1], 2)  ) %>%
+                                round(fn_MADlimits(., MADdeviations)[1], 2)  ) %>%
                 replace(., fn_calcMADdist(.) > MADdeviations & . > median(., na.rm = TRUE),  # above median
                                 round(fn_MADlimits(., MADdeviations)[2], 2)  )
     }
