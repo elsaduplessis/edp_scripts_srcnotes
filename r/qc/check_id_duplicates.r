@@ -18,7 +18,7 @@ set.duplicates  <-  df.test %>%
 # *Create dummy data frame of duplicates so that original data frame is untouched =================
 df.dup  <-  df.test  %>% 
             filter( ID %in% set.duplicates$ID ) %>%
-            arrange( ID ) %>%s
+            arrange( ID ) %>%
             mutate( rownum = row_number() ) %>%
             select( rownum, everything() )                    
 
