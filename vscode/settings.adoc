@@ -1,0 +1,8 @@
+
+
+
+## Font size on explorer window
+
+Workaround:
+"window.zoomLevel"
+https://stackoverflow.com/questions/36040857/visual-studio-code-change-font-size-for-file-explorer-tray
