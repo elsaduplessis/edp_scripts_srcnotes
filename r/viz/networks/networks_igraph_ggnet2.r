@@ -7,6 +7,8 @@
 #               ggnet2 commands! Not igraph.
 #
 #           Interweb resources @ bottom.
+#
+#           TODO: create dummy data df.data
 # ***********************************************************************
 
 
@@ -25,7 +27,6 @@ library( network )
 library( sna )
 library( intergraph )   # optional
 # --------------------------------------------------------------------------
-
 
 # *Create correlation matrix from selected data ====================================================
 # Minimum correlations to include
