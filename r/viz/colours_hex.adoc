@@ -1,0 +1,22 @@
+
+
+## HEX colour code resources
+---
+
+
+1.  colorbrewer2.org/
+
+    R colour palette generator with parameters
+
+
+
+2. https://www.color-hex.com/
+
+    see user https://www.color-hex.com/member/shinysplashes for palettes
+    Dart frog orange blue: https://www.color-hex.com/color-palette/50397
+
+
+
+3.  https://encycolorpedia.com/
+    
+    random colour generators
