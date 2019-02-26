@@ -48,21 +48,23 @@ mat.corr    <-  df.data %>%
 net <-  graph_from_adjacency_matrix( as.matrix(mat.corr), weighted = T, mode = "undirected", diag = F )
 
 # Select vertices customise
-V(net)$colr[ names(V(net)) %in% vars.setA ] <-  "A"
-V(net)$colr[ names(V(net)) %in% vars.setB]  <-  "B"
+V(net)$colour[ names(V(net)) %in% vars.setA ] <-  "A"
+V(net)$colour[ names(V(net)) %in% vars.setB]  <-  "B"
 
-# Select edges to customise
-# TODO
+# Customise edge colours
+#   - here by direction of "weight"
+E(net)$colour <- ifelse( E(net)$weight >= 0, "#b2994c", "#4d66b3" ) 
 # ----------------------------------------------------------------------------------------------------   
 
 # *Plot and save: spring-plots =======================================================================
 p.spring    <-  ggnet2( net, 
                         label = TRUE, 
                         label.size = 4, 
-                        color = "colr",
+                        color = "colour",
                         palette = c( "A" = "#A45684", "B" = "#898989") , 
                         node.size = 10,
-                        edge.size = 0.75, edge.color = "grey",
+                        edge.size = 0.75, 
+                        edge.color = "colour",
                         legend.size = 18,
                         legend.position = "bottom", 
                         color.legend = "type" ) + 
