@@ -5,6 +5,9 @@ Recommended lists:
 * https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages
 
 
+Cheatsheets:
+* https://github.com/rstudio/cheatsheets
+
 ---
 
 **READING**  
@@ -81,6 +84,17 @@ purr
 forcats
 - https://forcats.tidyverse.org/
 - factor handling
+
+
+
+**Tidyverse-related**
+
+encryptr
+- https://github.com/SurgicalInformatics/encryptr
+    * "Encrypt and decrypt data frame or tibble columns using the strong RSA public/private keys"
+    * https://surgicalinformatics.org/ 
+
+
 
 **Other**
 
@@ -198,11 +212,20 @@ gameofthrones
 
 **REPORTING**  
 
+rmarkdown
+- https://rmarkdown.rstudio.com/
+- R Markdown reproducible reporting
+    * https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
 knitr
 - inter-converts: Rmw - html - tex - pdf
-- If using LaTeX for report: 
-    * save as .Rnw ("R no web")
-    * R block start: << ... >>=, R block end: @ 
+- via R Markdown:
+    * R block start: ```{R} 
+    * end: ```
+- via LaTeX: 
+    * save LaTeX doc as .Rnw ("R no web")
+    * R block start: << options >>= 
+    * end: @ 
 
 xtable
 - includes LaTeX longtables  
