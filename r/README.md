@@ -1,6 +1,7 @@
 R packages
 ---
 
+
 **READING**  
 
 xlsx
@@ -19,7 +20,11 @@ memisc
 - as.data.set() 
 - e.g. *as.data.set(spss.system.file("..."))*
 
+
 ---
+
+
+
 
 **WRANGLING**  
 
@@ -42,8 +47,16 @@ forcats
 
 **Other**
 
+data.table
+- https://github.com/Rdatatable/data.table/wiki
+- alternative to tidyverse
+- dependencies: base R
+
 
 ---
+
+
+
 
 **DATA QC**  
 
@@ -51,11 +64,20 @@ naniar
 - http://naniar.njtierney.com/articles/naniar-visualisation.html
 - very useful NA summaries and visualisation in ggplot
 
+
 ---
+
+
+
 
 **VISUALISTAION**  
 
 ggplot2
+- see cheatsheets
+
+esquisse
+- https://github.com/dreamRs/esquisse
+- easy interactive GUI plotting for ggplot2
 
 grid
 
@@ -75,7 +97,11 @@ Cairo
 - Cairo graphics
 - use with ggsave() to enable alpha transparency levels in .eps output
 
+
 ---
+
+
+
 
 **REPORTING**  
 
@@ -85,16 +111,23 @@ xtable
 - includes LaTeX longtables  
 - some issues with caption at top when not using longtable
 
+
 ---
+
+
+
 
 **METHODS**
 
 **Multivariable**
 
+Nullabor
+
 GGally
 - ggpairs()
 
 igraph
+- create network objects
 
 ggnet2
 - use igraph network object as base layer for a ggplot
