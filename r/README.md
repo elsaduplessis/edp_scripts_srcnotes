@@ -58,18 +58,6 @@ data.table
 
 
 
-**DATA QC**  
-
-naniar  
-- http://naniar.njtierney.com/articles/naniar-visualisation.html
-- very useful NA summaries and visualisation in ggplot
-
-
----
-
-
-
-
 **VISUALISTAION**  
 
 ggplot2
@@ -78,6 +66,11 @@ ggplot2
 esquisse
 - https://github.com/dreamRs/esquisse
 - easy interactive GUI plotting for ggplot2
+
+ggplotly
+- https://plot.ly/ggplot2/
+- Plotly for ggplot
+
 
 grid
 
@@ -91,11 +84,23 @@ cowplot
 
 **Colour and palettes**
 
-viridis
-
 Cairo
 - Cairo graphics
 - use with ggsave() to enable alpha transparency levels in .eps output
+
+viridis
+- palette
+
+wesanderson
+- https://github.com/karthik/wesanderson
+- palette for reals!
+- examples:  
+    * https://blog.revolutionanalytics.com/2014/03/give-your-r-charts-that-wes-anderson-style.html
+
+gameofthrones
+- https://github.com/aljrico/gameofthrones
+- palette
+- see "Lady Margaery"
 
 
 ---
@@ -106,6 +111,10 @@ Cairo
 **REPORTING**  
 
 knitr
+- inter-converts: Rmw - html - tex - pdf
+- If using LaTeX for report: 
+    * save as .Rnw ("R no web")
+    * R block start: << ... >>=, R block end: @ 
 
 xtable
 - includes LaTeX longtables  
@@ -119,7 +128,25 @@ xtable
 
 **METHODS**
 
-**Multivariable**
+**Data QC**  
+
+janitor
+- https://github.com/sfirke/janitor
+- data cleaning
+- examples
+    * https://medium.com/@verajosemanuel/janitor-a-good-r-package-for-data-cleaning-f3c733632ad9
+
+
+naniar  
+- http://naniar.njtierney.com/articles/naniar-visualisation.html
+- very useful missing data analysis / visualisation
+
+**Extreme value analysis**
+
+extReme
+ - http://www.crm.umontreal.ca/2017/Extreme17/pdf/Gilleland_slides.pdf
+
+**Multivariable analyis**
 
 Nullabor
 
