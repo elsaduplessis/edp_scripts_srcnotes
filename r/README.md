@@ -10,6 +10,19 @@ Cheatsheets:
 
 ---
 
+
+**DATA CONNECTIONS**
+
+RCurl
+- https://crantastic.org/packages/RCurl
+- download data from secure URL
+    * https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/access-gapminder-data-rcurl-r/
+
+
+---
+
+
+
 **READING**  
 
 xlsx
@@ -33,6 +46,11 @@ readr
 - https://readr.tidyverse.org/
 - tidyverse rectangular data import
     * https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf
+
+reticulate
+- https://rstudio.github.io/reticulate/
+- R interface to Python
+
 
 ---
 
@@ -78,22 +96,12 @@ magrittr
 purr
 - https://purrr.tidyverse.org/
 - functional programming
-    * map()
+    * map(), pmap() [can use to apply row-wise funs]
     * https://github.com/rstudio/cheatsheets/blob/master/purrr.pdf
 
 forcats
 - https://forcats.tidyverse.org/
 - factor handling
-
-
-
-**Tidyverse-related**
-
-encryptr
-- https://github.com/SurgicalInformatics/encryptr
-    * "Encrypt and decrypt data frame or tibble columns using the strong RSA public/private keys"
-    * https://surgicalinformatics.org/ 
-
 
 
 **Other**
@@ -103,6 +111,13 @@ data.table
 - alternative to tidyverse
     * dependencies: base R
 
+
+**Sensitive data**
+
+encryptr
+- https://github.com/SurgicalInformatics/encryptr
+    * "Encrypt and decrypt data frame or tibble columns using the strong RSA public/private keys"
+    * https://surgicalinformatics.org/ 
 
 ---
 
@@ -147,8 +162,12 @@ ggnetwork
 ppcor  
 - partial correlations
 
+factoeextra
+- https://www.rpackages.io/package/factoextra
+- multivariate analysis
+    * PCA, clustering
+
 FactoMineR 
-- PCA
 
 
 ---
@@ -207,6 +226,7 @@ gameofthrones
 
 
 ---
+
 
 
 
